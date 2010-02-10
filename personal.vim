@@ -81,7 +81,7 @@ map <leader>v :e ~/.vim/personal.vim<cr>
 
 ":q screws me up, so need a macro to kill buffer
 function! SmartQuit ()
-  redir @b | silent ls! | redir END
+  redir @b | silent ls | redir END
   let bufCount = split(@b,"\n")
   if len(split(@b,"\n")) > 1
     execute ":bw"

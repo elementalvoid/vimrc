@@ -26,6 +26,16 @@ syntax on
 
 
 """"""""""""""""""""""""""""""
+" => TagList
+""""""""""""""""""""""""""""""
+"tags - directory of current file, then search up from working dir
+set tags=./tags,tags;
+nnoremap <silent> <F4> :TlistToggle<CR>
+let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
+let Tlist_Close_On_Select = 1 " Close the taglist window when a file or tag is selected.
+
+
+""""""""""""""""""""""""""""""
 " => Searching
 """"""""""""""""""""""""""""""
 set hlsearch " highlight as you search
@@ -45,7 +55,7 @@ function! GitBranchStatus()
   endif
   return ''
 endfunction
-set statusline=%f%m%r%h%w\ [BUFFER\ #%n]\ [TYPE=%Y]%(\ %{GitBranchStatus()}\ %)[ASCII=%03.3b\ HEX=%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+au BufNewFile,BufRead * set statusline=%f%m%r%h%w\ [BUFFER\ #%n]\ [TYPE=%Y]\ %(\%{GitBranchStatus()}\ %)[ASCII=%03.3b\ HEX=%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 
 """"""""""""""""""""""""""""""
@@ -60,23 +70,15 @@ au BufNewFile,BufRead *.mako set ft=mako
 
 
 """"""""""""""""""""""""""""""
-" => Misc
+" => Buffers
 """"""""""""""""""""""""""""""
-set nowrap " don't wrap long test
-set number " line numbers
-set title
-set showmode " show current mode
-set showcmd " show command characters
-
-" have command-line completion <Tab> (for filenames, help topics, option names)
-" first list the available options and complete the longest common part, then
-" have further <Tab>s cycle through the possibilities:
-set wildmode=list:longest
+"allow hidden buffers (modified buffers in background)
+set hidden
 
 "Quickly open a buffer for scribble
 map <leader>n :e ~/notes<cr>
 
-"Quickly open the VimRC
+"Quickly open a buffer for the VimRC
 map <leader>v :e ~/.vim/personal.vim<cr>
 
 ":q screws me up, so need a macro to kill buffer
@@ -91,15 +93,51 @@ function! SmartQuit ()
 endfunction
 map <leader>q :call SmartQuit()<cr>
 
+"Buffer naviation
+map <M-Left> :bprevious<cr>
+map <M-Right> :bnext<cr>
+
+
+""""""""""""""""""""""""""""""
+" => Misc
+""""""""""""""""""""""""""""""
+set nowrap " don't wrap long test
+set number " line numbers
+set title
+set showmode " show current mode
+set showcmd " show command characters
+
+"have command-line completion <Tab> (for filenames, help topics, option names)
+"first list the available options and complete the longest common part, then
+"have further <Tab>s cycle through the possibilities:
+set wildmode=list:longest
+
 "paste toggle
 nnoremap <F8> :set invpaste paste?<cr>
 set pastetoggle=<F8>
 
-"allow hidden buffers (modified buffers in background)
-set hidden
-
 "allow Ctrl-A and Ctrl-X to work on all variants
 set nrformats=octal,hex,alpha
+
+"always change the working dir to that of the file in the buffer
+set autochdir
+
+"Setup a cmd to edit a file in the pwd
+nmap <leader>e :e <c-r>=expand('%:p:h')<cr>/
+
+
+""""""""""""""""""""""""""""""
+" => Auto Commands
+""""""""""""""""""""""""""""""
+if has("autocmd")
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+endif
 
 """"""""""""""""""""""""""""""
 " => Grep & Search

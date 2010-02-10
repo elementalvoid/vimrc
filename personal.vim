@@ -41,11 +41,11 @@ set laststatus=2
 function! GitBranchStatus()
   let git_branch = GitBranch()
   if strlen(git_branch)
-    return ' [Git (' . git_branch . ')] '
+    return '[Git (' . git_branch . ')]'
   endif
-  return ' '
+  return ''
 endfunction
-set statusline=%f%m%r%h%w\ [BUFFER\ #%n]\ [TYPE=%Y]%{GitBranchStatus()}[ASCII=%03.3b\ HEX=%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=%f%m%r%h%w\ [BUFFER\ #%n]\ [TYPE=%Y]%(\ %{GitBranchStatus()}\ %)[ASCII=%03.3b\ HEX=%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 
 """"""""""""""""""""""""""""""
@@ -64,9 +64,7 @@ au BufNewFile,BufRead *.mako set ft=mako
 """"""""""""""""""""""""""""""
 set nowrap " don't wrap long test
 set number " line numbers
-set titlestring=filename\ [+=-]\ (path)\ -\ VIM
 set title
-"set background=light " no bold font highlights
 set showmode " show current mode
 set showcmd " show command characters
 
@@ -99,6 +97,9 @@ set pastetoggle=<F8>
 
 "allow hidden buffers (modified buffers in background)
 set hidden
+
+"allow Ctrl-A and Ctrl-X to work on all variants
+set nrformats=octal,hex,alpha
 
 """"""""""""""""""""""""""""""
 " => Grep & Search

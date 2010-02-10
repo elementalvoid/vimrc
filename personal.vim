@@ -82,7 +82,16 @@ map <leader>n :e ~/notes<cr>
 map <leader>v :e ~/.vim/personal.vim<cr>
 
 ":q screws me up, so need a macro to kill buffer
-map <leader>q :bw<cr>
+function! SmartQuit ()
+  redir @b | silent ls! | redir END
+  let bufCount = split(@b,"\n")
+  if len(split(@b,"\n")) > 1
+    execute ":bw"
+  else
+    execute ":q"
+  endif
+endfunction
+map <leader>q :call SmartQuit()<cr>
 
 "paste toggle
 nnoremap <F8> :set invpaste paste?<cr>

@@ -93,6 +93,12 @@ function! SmartQuit ()
 endfunction
 map <leader>q :call SmartQuit()<cr>
 
+"Setup a cmd to edit a file in the pwd
+map <leader>e :e <c-r>=expand('%:p:h')<cr>/
+
+"write the buffer
+map <leader>w :w<cr>
+
 "Buffer naviation
 map <M-Left> :bprevious<cr>
 map <M-Right> :bnext<cr>
@@ -121,9 +127,6 @@ set nrformats=octal,hex,alpha
 
 "always change the working dir to that of the file in the buffer
 set autochdir
-
-"Setup a cmd to edit a file in the pwd
-nmap <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
 
 """"""""""""""""""""""""""""""

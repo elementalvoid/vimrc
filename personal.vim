@@ -14,7 +14,8 @@ set smartindent
 set smarttab
 set tabstop=2
 set shiftwidth=2
-set softtabstop=2
+set softtabstop=2 " if it looks like a tab, we can delete it like a tab
+set shiftround " < and > will hit indentation levels
 set expandtab
 
 
@@ -127,6 +128,15 @@ set nrformats=octal,hex,alpha
 
 "always change the working dir to that of the file in the buffer
 set autochdir
+
+"give three lines of context when moving the cursor around
+set scrolloff=3
+
+"if you :q with changes it asks you if you want to continue or not
+set confirm
+
+" have Y behave analogously to D rather than to dd
+nmap Y y$
 
 
 """"""""""""""""""""""""""""""

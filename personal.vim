@@ -4,6 +4,7 @@ set nocompatible
 " => Color Scheme
 """"""""""""""""""""""""""""""
 set t_Co=256 " enable 256 color mode (which supports transparency)
+set background=dark
 colorscheme peaksea
 
 """"""""""""""""""""""""""""""

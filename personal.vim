@@ -147,6 +147,7 @@ if has("autocmd")
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
+  " Also don't do it when in a git/svn commit message.
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") && expand('%Y') != "COMMIT_EDITMSG" |
     \   exe "normal g`\"" |

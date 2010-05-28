@@ -151,6 +151,10 @@ nmap Y y$
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>dos mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
+"Toggle mouse=a mode
+map <leader>mm :setlocal mouse=a<cr>
+map <leader>mn :setlocal mouse&<cr>
+
 
 """"""""""""""""""""""""""""""
 " => Auto Commands

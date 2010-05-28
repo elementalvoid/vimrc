@@ -89,6 +89,8 @@ map <leader>n :e ~/notes<cr>
 
 "Quickly open a buffer for the VimRC
 map <leader>v :e ~/.vim/personal.vim<cr>
+"and reload it when edited
+autocmd! bufwritepost personal.vim source ~/.vim/personal.vim
 
 ":q screws me up, so need a macro to kill buffer
 function! SmartQuit ()

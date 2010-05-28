@@ -8,6 +8,7 @@ set mouse=a
 set background=dark
 colorscheme peaksea
 
+
 """"""""""""""""""""""""""""""
 " =>Tabbing and indenting
 """"""""""""""""""""""""""""""
@@ -19,6 +20,11 @@ set shiftwidth=2
 set softtabstop=2 " if it looks like a tab, we can delete it like a tab
 set shiftround " < and > will hit indentation levels
 set expandtab
+
+"Some handy tab width goodness
+map <leader>t2 :setlocal shiftwidth=2<cr>
+map <leader>t4 :setlocal shiftwidth=4<cr>
+map <leader>t8 :setlocal shiftwidth=8<cr>
 
 
 """"""""""""""""""""""""""""""

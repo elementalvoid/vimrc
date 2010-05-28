@@ -157,6 +157,14 @@ map <leader>mn :setlocal mouse&<cr>
 
 
 """"""""""""""""""""""""""""""
+" => Cope (:h cope)
+""""""""""""""""""""""""""""""
+map <leader>cc :botright cope<cr>
+map <leader>cn :cn<cr>
+map <leader>cp :cp<cr>
+
+
+""""""""""""""""""""""""""""""
 " => Auto Commands
 """"""""""""""""""""""""""""""
 if has("autocmd")

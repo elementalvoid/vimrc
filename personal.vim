@@ -196,8 +196,8 @@ unlet tmp
 
 "grep for word under cursor in the current file
 "nnoremap <leader>gw <esc>:grep <cword> % <cr><cr><cr>
-"search for word under cursor
-nnoremap <leader>gw <esc>:let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>
+"search for word under cursor and go to next match
+nnoremap <leader>gw <esc>:let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>n
 
 
 """"""""""""""""""""""""""""""

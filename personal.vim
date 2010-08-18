@@ -28,6 +28,13 @@ map <leader>t8 :setlocal shiftwidth=8<cr>
 
 
 """"""""""""""""""""""""""""""
+" => Super Tab plugin
+""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletion="context"
+let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
+
+
+""""""""""""""""""""""""""""""
 " => Coding
 """"""""""""""""""""""""""""""
 set showmatch " when a bracket is inserted, briefly jump to the matching one

@@ -114,8 +114,11 @@ map <leader>q :call SmartQuit()<cr>
 "Setup a cmd to edit a file in the pwd
 map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
-"write the buffer
+"write and quit buffers
 map <leader>w :w<cr>
+map <leader>wq :wq<cr>
+map <leader>wa :wa<cr>
+map <leader>waq :wa<esc>:q<cr>
 
 "Buffer naviation
 map <M-Left> :bprevious<cr>

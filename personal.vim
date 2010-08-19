@@ -8,6 +8,7 @@ set mouse=a
 set background=dark
 colorscheme peaksea
 
+
 """"""""""""""""""""""""""""""
 " =>Tabbing and indenting
 """"""""""""""""""""""""""""""
@@ -19,6 +20,18 @@ set shiftwidth=2
 set softtabstop=2 " if it looks like a tab, we can delete it like a tab
 set shiftround " < and > will hit indentation levels
 set expandtab
+
+"Some handy tab width goodness
+map <leader>t2 :setlocal shiftwidth=2<cr>
+map <leader>t4 :setlocal shiftwidth=4<cr>
+map <leader>t8 :setlocal shiftwidth=8<cr>
+
+
+""""""""""""""""""""""""""""""
+" => Super Tab plugin
+""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletion="context"
+let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
 
 
 """"""""""""""""""""""""""""""
@@ -83,6 +96,8 @@ map <leader>n :e ~/notes<cr>
 
 "Quickly open a buffer for the VimRC
 map <leader>v :e ~/.vim/personal.vim<cr>
+"and reload it when edited
+autocmd! bufwritepost personal.vim source ~/.vim/personal.vim
 
 ":q screws me up, so need a macro to kill buffer
 function! SmartQuit ()
@@ -140,6 +155,21 @@ set confirm
 " have Y behave analogously to D rather than to dd
 nmap Y y$
 
+" Remove the Windows ^M - when the encodings gets messed up
+noremap <Leader>dos mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+"Toggle mouse=a mode
+map <leader>mm :setlocal mouse=a<cr>
+map <leader>mn :setlocal mouse&<cr>
+
+
+""""""""""""""""""""""""""""""
+" => Cope (:h cope)
+""""""""""""""""""""""""""""""
+map <leader>cc :botright cope<cr>
+map <leader>cn :cn<cr>
+map <leader>cp :cp<cr>
+
 
 """"""""""""""""""""""""""""""
 " => Auto Commands
@@ -173,8 +203,8 @@ unlet tmp
 
 "grep for word under cursor in the current file
 "nnoremap <leader>gw <esc>:grep <cword> % <cr><cr><cr>
-"search for word under cursor
-nnoremap <leader>gw <esc>:let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>
+"search for word under cursor and go to next match
+nnoremap <leader>gw <esc>:let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>n
 
 
 """"""""""""""""""""""""""""""

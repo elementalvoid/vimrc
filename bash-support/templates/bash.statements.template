@@ -21,7 +21,7 @@ for <CURSOR> in ; do
 <SPLIT>done
 §%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.for ==
-for (( CNTR=0; CNTR<<CURSOR>0; CNTR++ )); do
+for (( CNTR=0; CNTR<<CURSOR>0; CNTR+=1 )); do
 <SPLIT>done
 §%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.if ==
@@ -47,16 +47,11 @@ until <CURSOR> ; do
 while <CURSOR> ; do
 <SPLIT>done
 §%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== statements.functionold ==
+== statements.function ==
 |?FUNCTION_NAME| ()
 {
 <CURSOR><SPLIT>
 }	# ----------  end of function |FUNCTION_NAME|  ----------
-§%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-== statements.function ==
-function |?FUNCTION_NAME| {
-<CURSOR><SPLIT>
-}
 §%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == statements.printf == insert ==
 printf "%s\n" <CURSOR><SPLIT>

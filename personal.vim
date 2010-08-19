@@ -125,9 +125,11 @@ map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
 "write and quit buffers
 map <leader>w :w<cr>
+map <leader>q :q<cr>
 map <leader>wq :wq<cr>
 map <leader>wa :wa<cr>
-map <leader>waq :wa<esc>:q<cr>
+map <leader>wqa :wqa<cr>
+map <leader>qa :qa
 
 "Buffer naviation
 map <M-Left> :bprevious<cr>

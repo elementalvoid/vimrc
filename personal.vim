@@ -159,8 +159,8 @@ set confirm
 nmap Y y$
 
 "Toggle mouse=a mode
+map <leader>m :setlocal mouse&<cr>
 map <leader>mm :setlocal mouse=a<cr>
-map <leader>mn :setlocal mouse&<cr>
 
 
 """"""""""""""""""""""""""""""

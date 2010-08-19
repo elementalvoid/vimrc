@@ -1,6 +1,15 @@
 set nocompatible
 set mouse=a
 
+
+""""""""""""""""""""""""""""""
+" => Plugins
+""""""""""""""""""""""""""""""
+filetype on
+filetype plugin on
+filetype indent on
+
+
 """"""""""""""""""""""""""""""
 " => Color Scheme
 """"""""""""""""""""""""""""""
@@ -205,12 +214,4 @@ unlet tmp
 "nnoremap <leader>gw <esc>:grep <cword> % <cr><cr><cr>
 "search for word under cursor and go to next match
 nnoremap <leader>gw <esc>:let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>n
-
-
-""""""""""""""""""""""""""""""
-" => Plugins
-""""""""""""""""""""""""""""""
-filetype on
-filetype plugin on
-filetype indent on
 

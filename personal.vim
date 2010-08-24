@@ -118,18 +118,17 @@ function! SmartQuit ()
     execute ":q"
   endif
 endfunction
-map <leader>q :call SmartQuit()<cr>
-
-"Setup a cmd to edit a file in the pwd
-map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
 "write and quit buffers
 map <leader>w :w<cr>
-map <leader>q :q<cr>
-map <leader>wq :wq<cr>
+map <leader>q :call SmartQuit()<cr>
+map <leader>wq :w<cr><esc>:call SmartQuit()<cr>
 map <leader>wa :wa<cr>
 map <leader>wqa :wqa<cr>
-map <leader>qa :qa
+map <leader>qa :qa<cr>
+
+"Setup a cmd to edit a file in the pwd
+map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
 "Buffer naviation
 map <M-Left> :bprevious<cr>
@@ -173,6 +172,12 @@ nmap Y y$
 map <leader>m :setlocal mouse&<cr>
 map <leader>mm :setlocal mouse=a<cr>
 
+" mapping timeouts
+" timeout on mapping after 500ms
+" timeout on key codes after 100ms
+set timeout
+set timeoutlen=500
+set ttimeoutlen=100
 
 """"""""""""""""""""""""""""""
 " => Cope (:h cope)

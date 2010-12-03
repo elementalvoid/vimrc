@@ -40,6 +40,8 @@ map <leader>t8 :setlocal shiftwidth=8<cr>
 """"""""""""""""""""""""""""""
 " => Super Tab plugin
 """"""""""""""""""""""""""""""
+"let omnifunc=syntaxcomplete#Complete
+"let g:omni_syntax_use_iskeyword = 0
 let g:SuperTabDefaultCompletion="context"
 let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
 
@@ -197,6 +199,23 @@ map <C-H> <C-W>h<C-W>_
 set timeout
 set timeoutlen=500
 set ttimeoutlen=100
+
+
+""""""""""""""""""""""""""""""
+" => Omni Completion
+""""""""""""""""""""""""""""""
+"let omnifunc=syntaxcomplete#Complete
+"let g:omni_syntax_use_iskeyword = 0
+set completeopt=menu,longest,preview
+
+" some convenient mappings
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+
 
 """"""""""""""""""""""""""""""
 " => Cope (:h cope)

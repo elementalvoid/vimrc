@@ -1,5 +1,6 @@
 set nocompatible
 set mouse=a
+set modeline
 
 
 """"""""""""""""""""""""""""""
@@ -143,6 +144,12 @@ set number " line numbers
 set title
 set showmode " show current mode
 set showcmd " show command characters
+
+"fix arrow keys - this is way hacky
+imap OA <ESC>kli
+imap OB <ESC>jli
+imap OC <ESC>lli
+imap OD <ESC>hli
 
 "have command-line completion <Tab> (for filenames, help topics, option names)
 "first list the available options and complete the longest common part, then

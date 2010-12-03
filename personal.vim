@@ -179,6 +179,18 @@ nmap Y y$
 map <leader>m :setlocal mouse&<cr>
 map <leader>mm :setlocal mouse=a<cr>
 
+" Easier moving in tabs and windows
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
+
+" Stupid shift key fixes - these break SmartQuit somehow
+"cmap W w
+"cmap WQ wq
+"cmap wQ wq
+"cmap Q q
+
 " mapping timeouts
 " timeout on mapping after 500ms
 " timeout on key codes after 100ms

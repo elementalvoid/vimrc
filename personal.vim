@@ -159,8 +159,18 @@ imap OD <ESC>hli
 set wildmode=list:longest
 
 "paste toggle
-nnoremap <F8> :set invpaste paste?<cr>
-set pastetoggle=<F8>
+function! TogglePaste()
+  if &mouse == 'a'
+    set mouse=
+    set paste
+    echo "Paste mode on"
+  else
+    set mouse=a
+    set nopaste
+    echo "Paste mode off"
+  endif
+endfunction
+nnoremap <F8> :call TogglePaste()<cr>
 
 "allow Ctrl-A and Ctrl-X to work on all variants
 set nrformats=octal,hex,alpha

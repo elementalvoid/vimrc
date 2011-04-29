@@ -16,3 +16,6 @@
 [submodule "vimbundle"]
 	path = vimbundle
 	url = https://github.com/freevoid/vimbundle.git
+[submodule "bundle-available/vim-colors-solarized"]
+	path = bundle-available/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

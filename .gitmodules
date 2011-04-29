@@ -1,0 +1,15 @@
+[submodule "bundle-available/pastebin-vim"]
+	path = bundle-available/pastebin-vim
+	url = https://github.com/mattn/pastebin-vim.git
+[submodule "bundle-available/pyflakes-vim"]
+	path = bundle-available/pyflakes-vim
+	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "bundle-available/vim-debug"]
+	path = bundle-available/vim-debug
+	url = https://github.com/jabapyth/vim-debug.git
+[submodule "bundle-available/vim-extradite"]
+	path = bundle-available/vim-extradite
+	url = https://github.com/int3/vim-extradite.git
+[submodule "bundle-available/vim-fugitive"]
+	path = bundle-available/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git

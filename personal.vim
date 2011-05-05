@@ -6,9 +6,9 @@ set modeline
 """"""""""""""""""""""""""""""
 " => Plugins
 """"""""""""""""""""""""""""""
-filetype on
-filetype plugin on
-filetype indent on
+filetype off
+call pathogen#runtime_append_all_bundles("bundle-enabled")
+filetype plugin indent on
 
 
 """"""""""""""""""""""""""""""
@@ -16,7 +16,7 @@ filetype indent on
 """"""""""""""""""""""""""""""
 "set t_Co=256 " enable 256 color mode (which supports transparency)
 set background=dark
-colorscheme peaksea
+colorscheme solarized
 
 
 """"""""""""""""""""""""""""""

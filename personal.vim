@@ -12,11 +12,15 @@ filetype plugin indent on
 
 
 """"""""""""""""""""""""""""""
-" => Color Scheme
+" => Colors and Fonts
 """"""""""""""""""""""""""""""
 "set t_Co=256 " enable 256 color mode (which supports transparency)
 set background=dark
 colorscheme solarized
+
+if has('gui_running')
+  set guifont=DejaVu\ Sans\ Mono\ 8
+endif
 
 
 """"""""""""""""""""""""""""""

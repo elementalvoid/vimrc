@@ -34,7 +34,7 @@ syn match	gitoliteRepoError	"[^ \t0-9a-zA-Z._@+/\\^$|()[\]*?{}-]\+" contained
 syn match	gitoliteUserError	"[^ \t0-9a-zA-Z._@+-]\+" contained
 
 " Permission
-syn match	gitoliteKeyword		"^\s*\(C\|R\|RW\|RW+\)[ \t=]\@=" nextgroup=gitoliteRefex
+syn match	gitoliteKeyword		"^\s*\(C\|R\|RW\|RW+\|RWD\|RWD+\)[ \t=]\@=" nextgroup=gitoliteRefex
 syn match	gitoliteKeyword		"^\s*-[ \t=]\@=" nextgroup=gitoliteDenyRefex
 syn match	gitoliteRefex		"[^=]*="he=e-1 contained contains=gitoliteNameRefex,gitoliteGroup nextgroup=gitoliteUserLine
 syn match	gitoliteDenyRefex	"[^=]*="he=e-1 contained contains=gitoliteNameRefex,gitoliteGroup nextgroup=gitoliteDenyUsers

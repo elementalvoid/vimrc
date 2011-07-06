@@ -15,7 +15,7 @@
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vimbundle"]
 	path = vimbundle
-	url = https://github.com/freevoid/vimbundle.git
+	url = git@github.com:elementalvoid/vimbundle.git
 [submodule "bundle-available/vim-colors-solarized"]
 	path = bundle-available/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git

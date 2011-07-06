@@ -19,3 +19,6 @@
 [submodule "bundle-available/vim-colors-solarized"]
 	path = bundle-available/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle-available/bufexplorer"]
+	path = bundle-available/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip.git

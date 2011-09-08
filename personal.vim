@@ -141,6 +141,9 @@ map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 map <M-Left> :bprevious<cr>
 map <M-Right> :bnext<cr>
 
+"Buffer Explorer
+nnoremap <F5> :BufExplorer<cr>
+
 
 """"""""""""""""""""""""""""""
 " => Misc

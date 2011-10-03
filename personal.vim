@@ -153,6 +153,8 @@ set number " line numbers
 set title
 set showmode " show current mode
 set showcmd " show command characters
+set history=1000 "let's have a litle more of it
+set cursorline "highlight the current line
 
 "fix arrow keys - this is way hacky
 imap OA <ESC>kli

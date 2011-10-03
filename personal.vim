@@ -214,8 +214,8 @@ map <C-H> <C-W>h<C-W>_
 "cmap Q q
 
 " mapping timeouts
-" timeout on mapping after 500ms
-" timeout on key codes after 100ms
+" timeout on mapping after 500ms - should be slower than you usually type
+" timeout on key codes after 100ms - should be faster than you can type
 set timeout
 set timeoutlen=500
 set ttimeoutlen=100

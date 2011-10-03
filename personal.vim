@@ -180,16 +180,7 @@ endfunction
 nnoremap <F8> :call TogglePaste()<cr>
 
 "wrap toggle
-function! ToggleWrap()
-  if &wrap == '0'
-    set wrap
-    echo "Wrap on"
-  else
-    set nowrap
-    echo "Wrap off"
-  endif
-endfunction
-nnoremap <F9> :call ToggleWrap()<cr>
+nnoremap <F9> :set wrap!<cr>
 
 "allow Ctrl-A and Ctrl-X to work on all variants
 set nrformats=octal,hex,alpha

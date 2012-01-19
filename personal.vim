@@ -2,6 +2,9 @@ set nocompatible
 set mouse=a
 set modeline
 
+"follow the leader
+let mapleader=";"
+
 
 """"""""""""""""""""""""""""""
 " => Plugins

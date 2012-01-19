@@ -130,9 +130,6 @@ endfunction
 map <leader>w :w<cr>
 map <leader>q :call SmartQuit()<cr>
 map <leader>wq :w<cr><esc>:call SmartQuit()<cr>
-map <leader>wa :wa<cr>
-map <leader>wqa :wqa<cr>
-map <leader>qa :qa<cr>
 
 "Setup a cmd to edit a file in the pwd
 map <leader>e :e <c-r>=expand('%:p:h')<cr>/
@@ -157,10 +154,10 @@ set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
 
 "fix arrow keys - this is way hacky
-imap OA <ESC>kli
-imap OB <ESC>jli
-imap OC <ESC>lli
-imap OD <ESC>hli
+"imap OA <ESC>kli
+"imap OB <ESC>jli
+"imap OC <ESC>lli
+"imap OD <ESC>hli
 
 "have command-line completion <Tab> (for filenames, help topics, option names)
 "first list the available options and complete the longest common part, then
@@ -199,21 +196,11 @@ set confirm
 " have Y behave analogously to D rather than to dd
 nmap Y y$
 
-"Toggle mouse=a mode
-map <leader>m :setlocal mouse&<cr>
-map <leader>mm :setlocal mouse=a<cr>
-
 " Easier moving in tabs and windows
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-H> <C-W>h<C-W>_
-
-" Stupid shift key fixes - these break SmartQuit somehow
-"cmap W w
-"cmap WQ wq
-"cmap wQ wq
-"cmap Q q
 
 " mapping timeouts
 " timeout on mapping after 500ms - should be slower than you usually type
@@ -261,6 +248,7 @@ if has("autocmd")
     \ endif
 endif
 
+
 """"""""""""""""""""""""""""""
 " => Grep & Search
 """"""""""""""""""""""""""""""
@@ -277,10 +265,6 @@ for i in ['ack', 'ack-grep']
 endfor
 unlet tmp
 
-"grep for word under cursor in the current file
-"nnoremap <leader>gw <esc>:grep <cword> % <cr><cr><cr>
-"search for word under cursor and go to next match
-nnoremap <leader>gw <esc>:let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>n
 
 """"""""""""""""""""""""""""""
 " => Security

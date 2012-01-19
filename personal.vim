@@ -177,10 +177,12 @@ function! TogglePaste()
   if &mouse == 'a'
     set mouse=
     set paste
+    set nonumber
     echo "Paste mode on"
   else
     set mouse=a
     set nopaste
+    set number
     echo "Paste mode off"
   endif
 endfunction

@@ -158,6 +158,9 @@ set showcmd " show command characters
 set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
 
+"avoid escape key
+imap jj <esc>
+
 "fix arrow keys - this is way hacky
 "imap OA <ESC>kli
 "imap OB <ESC>jli

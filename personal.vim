@@ -7,11 +7,36 @@ let mapleader=";"
 
 
 """"""""""""""""""""""""""""""
-" => Plugins
+" => Bundles
 """"""""""""""""""""""""""""""
 filetype off
-call pathogen#runtime_append_all_bundles("bundle-enabled")
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 filetype plugin indent on
+
+Bundle 'gmarik/vundle'
+Bundle 'bash-support.vim'
+Bundle 'bufexplorer.zip'
+Bundle 'vim-colors-solarized'
+Bundle 'tpope/vim-fugitive'
+Bundle 'int3/vim-extradite'
+"Bundle 'Supertab-continued.'
+Bundle 'Syntastic'
+"Bundle 'wincent/Command-T'
+"Bundle 'Raimondi/delimitMate'
+"Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'christoomey/vim-space'
+Bundle 'sickill/vim-pasta'
+"Bundle 'vim-debug'
+Bundle 'Gundo'
+"Bundle 'superSnipMate'
+
+" snipmate and its dependencies
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/snipmate-snippets'
+
 
 
 """"""""""""""""""""""""""""""

@@ -1,2 +1,5 @@
 .netrwhist
-bundle-enabled
+bundle/*
+!bundle/vundle
+bundle/vundle/.git
+bundle/vundle/.gitignore

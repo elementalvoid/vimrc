@@ -3,3 +3,4 @@ bundle/*
 !bundle/vundle
 bundle/vundle/.git
 bundle/vundle/.gitignore
+spell

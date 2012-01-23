@@ -2,7 +2,7 @@
 " => Bundles
 """"""""""""""""""""""""""""""
 " To install bundles without errors run:
-"  vim -u bundles.vim +BundleInstall +q
+"  git clone https://github.com/gmarik/vundle.git bundle/vundle; vim -u bundles.vim +BundleInstall +q
 source bundles.vim
 
 

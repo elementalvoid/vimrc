@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'bash-support.vim'
 Bundle 'bufexplorer.zip'
-Bundle 'vim-colors-solarized'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'motemen/git-vim'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'

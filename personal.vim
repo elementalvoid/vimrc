@@ -1,47 +1,59 @@
-set nocompatible
-set mouse=a
-set modeline
-
-"follow the leader
-let mapleader=";"
-
-
 """"""""""""""""""""""""""""""
 " => Bundles
 """"""""""""""""""""""""""""""
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-filetype plugin indent on
+" To install bundles without errors run:
+"  vim -u bundles.vim +BundleInstall +q
+source bundles.vim
 
-Bundle 'gmarik/vundle'
-Bundle 'bash-support.vim'
-Bundle 'bufexplorer.zip'
-Bundle 'vim-colors-solarized'
-Bundle 'motemen/git-vim'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
-Bundle 'int3/vim-extradite'
-Bundle 'gitolite.vim'
-Bundle 'SuperTab'
-Bundle 'Syntastic'
-"Bundle 'wincent/Command-T'
-"Bundle 'Raimondi/delimitMate'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'christoomey/vim-space'
-Bundle 'sickill/vim-pasta'
-"Bundle 'vim-debug'
-Bundle 'Gundo'
-"Bundle 'superSnipMate'
-Bundle 'taglist.vim'
-Bundle 'edsono/vim-matchit'
 
-" snipmate and its dependencies
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/snipmate-snippets'
+""""""""""""""""""""""""""""""
+" => The Basics
+""""""""""""""""""""""""""""""
+"follow the leader
+let mapleader=";"
 
+set mouse=a
+set modeline
+set showmatch " when a bracket is inserted, briefly jump to the matching one
+set nowrap " don't wrap long test
+set number " line numbers
+set title
+set showmode " show current mode
+set showcmd " show command characters
+set history=1000 "let's have a litle more of it
+set cursorline "highlight the current line
+
+"avoid escape key
+imap jj <esc>
+
+"have command-line completion <Tab> (for filenames, help topics, option names)
+"first list the available options and complete the longest common part, then
+"have further <Tab>s cycle through the possibilities:
+set wildmode=list:longest
+
+syntax on
+
+"allow Ctrl-A and Ctrl-X to work on all variants
+set nrformats=octal,hex,alpha
+
+"always change the working dir to that of the file in the buffer
+set autochdir
+
+"give three lines of context when moving the cursor around
+set scrolloff=3
+
+"if you :q with changes it asks you if you want to continue or not
+set confirm
+
+" have Y behave analogously to D rather than to dd
+nmap Y y$
+
+" mapping timeouts
+" timeout on mapping after 500ms - should be slower than you usually type
+" timeout on key codes after 100ms - should be faster than you can type
+set timeout
+set timeoutlen=500
+set ttimeoutlen=100
 
 
 """"""""""""""""""""""""""""""
@@ -81,13 +93,6 @@ map <leader>t8 :setlocal shiftwidth=8<cr>
 "let g:omni_syntax_use_iskeyword = 0
 let g:SuperTabDefaultCompletion="context"
 let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
-
-
-""""""""""""""""""""""""""""""
-" => Coding
-""""""""""""""""""""""""""""""
-set showmatch " when a bracket is inserted, briefly jump to the matching one
-syntax on
 
 
 """"""""""""""""""""""""""""""
@@ -151,7 +156,6 @@ autocmd! bufwritepost personal.vim source ~/.vim/personal.vim
 ":q screws me up, so need a macro to kill buffer
 function! SmartQuit ()
   redir @b | silent ls | redir END
-  let bufCount = split(@b,"\n")
   if len(split(@b,"\n")) > 1
     execute ":bw"
   else
@@ -180,28 +184,6 @@ nnoremap <F5> :BufExplorer<cr>
 """"""""""""""""""""""""""""""
 " => Misc
 """"""""""""""""""""""""""""""
-set nowrap " don't wrap long test
-set number " line numbers
-set title
-set showmode " show current mode
-set showcmd " show command characters
-set history=1000 "let's have a litle more of it
-set cursorline "highlight the current line
-
-"avoid escape key
-imap jj <esc>
-
-"fix arrow keys - this is way hacky
-"imap OA <ESC>kli
-"imap OB <ESC>jli
-"imap OC <ESC>lli
-"imap OD <ESC>hli
-
-"have command-line completion <Tab> (for filenames, help topics, option names)
-"first list the available options and complete the longest common part, then
-"have further <Tab>s cycle through the possibilities:
-set wildmode=list:longest
-
 "paste toggle
 function! TogglePaste()
   if &mouse == 'a'
@@ -221,33 +203,11 @@ nnoremap <F8> :call TogglePaste()<cr>
 "wrap toggle
 nnoremap <F9> :set wrap!<cr>
 
-"allow Ctrl-A and Ctrl-X to work on all variants
-set nrformats=octal,hex,alpha
-
-"always change the working dir to that of the file in the buffer
-set autochdir
-
-"give three lines of context when moving the cursor around
-set scrolloff=3
-
-"if you :q with changes it asks you if you want to continue or not
-set confirm
-
-" have Y behave analogously to D rather than to dd
-nmap Y y$
-
 " Easier moving in tabs and windows
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-H> <C-W>h<C-W>_
-
-" mapping timeouts
-" timeout on mapping after 500ms - should be slower than you usually type
-" timeout on key codes after 100ms - should be faster than you can type
-set timeout
-set timeoutlen=500
-set ttimeoutlen=100
 
 
 """"""""""""""""""""""""""""""

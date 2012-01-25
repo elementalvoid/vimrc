@@ -23,7 +23,9 @@ Bundle 'sickill/vim-pasta'
 "Bundle 'vim-debug'
 Bundle 'Gundo'
 "Bundle 'superSnipMate'
-Bundle 'taglist.vim'
+if executable('ctags')
+  Bundle 'taglist.vim'
+endif
 Bundle 'edsono/vim-matchit'
 
 " snipmate and its dependencies

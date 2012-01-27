@@ -5,30 +5,29 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'bash-support.vim'
-Bundle 'bufexplorer.zip'
+Bundle 'vim-scripts/bash-support.vim'
+Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'motemen/git-vim'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'int3/vim-extradite'
-Bundle 'gitolite.vim'
-Bundle 'SuperTab'
-Bundle 'Syntastic'
+Bundle 'tmatilai/gitolite.vim'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
 "Bundle 'wincent/Command-T'
 "Bundle 'Raimondi/delimitMate'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'christoomey/vim-space'
 Bundle 'sickill/vim-pasta'
-"Bundle 'vim-debug'
-Bundle 'Gundo'
-"Bundle 'superSnipMate'
+Bundle 'sjl/gundo.vim'
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
 endif
 Bundle 'edsono/vim-matchit'
 
 " snipmate and its dependencies
+"Bundle 'superSnipMate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'

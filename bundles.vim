@@ -28,9 +28,9 @@ Bundle 'edsono/vim-matchit'
 
 " snipmate and its dependencies
 "Bundle 'superSnipMate'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/snipmate-snippets'
+"Bundle 'MarcWeber/vim-addon-mw-utils'
+"Bundle 'tomtom/tlib_vim'
+"Bundle 'garbas/vim-snipmate'
+"Bundle 'honza/snipmate-snippets'
 
 filetype plugin indent on

@@ -95,13 +95,14 @@ let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
 
 
 """"""""""""""""""""""""""""""
-" => TagList
+" => TagBar
 """"""""""""""""""""""""""""""
 "tags - directory of current file, then search up from working dir
 set tags=./tags,tags;
-nnoremap <silent> <F4> :TlistToggle<CR>
-let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
-let Tlist_Close_On_Select = 1 " Close the taglist window when a file or tag is selected.
+nnoremap <silent> <F4> :TagbarToggle<CR>
+let g:tagbar_left=1
+let g:tagbar_compact=1
+let g:tagbar_autoclose=1
 
 
 """"""""""""""""""""""""""""""

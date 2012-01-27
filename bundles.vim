@@ -24,7 +24,7 @@ Bundle 'sickill/vim-pasta'
 Bundle 'Gundo'
 "Bundle 'superSnipMate'
 if executable('ctags')
-  Bundle 'taglist.vim'
+  Bundle 'majutsushi/tagbar'
 endif
 Bundle 'edsono/vim-matchit'
 

@@ -86,6 +86,12 @@ map <leader>t8 :setlocal shiftwidth=8<cr>
 
 
 """"""""""""""""""""""""""""""
+" => Gundo
+""""""""""""""""""""""""""""""
+nnoremap <F3> :GundoToggle<CR>
+
+
+""""""""""""""""""""""""""""""
 " => Super Tab plugin
 """"""""""""""""""""""""""""""
 "let omnifunc=syntaxcomplete#Complete

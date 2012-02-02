@@ -58,7 +58,7 @@ set ttimeoutlen=100
 """"""""""""""""""""""""""""""
 " => Colors and Fonts
 """"""""""""""""""""""""""""""
-"set t_Co=256 " enable 256 color mode (which supports transparency)
+set t_Co=256 " enable 256 color mode (which supports transparency)
 set background=dark
 colorscheme solarized
 

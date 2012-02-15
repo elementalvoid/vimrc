@@ -205,6 +205,7 @@ function! TogglePaste()
   endif
 endfunction
 nnoremap <F8> :call TogglePaste()<cr>
+inoremap <F8> <esc>:call TogglePaste()<cr>a
 
 "wrap toggle
 nnoremap <F9> :set wrap!<cr>

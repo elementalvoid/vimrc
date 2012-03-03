@@ -33,4 +33,6 @@ Bundle 'edsono/vim-matchit'
 "Bundle 'garbas/vim-snipmate'
 "Bundle 'honza/snipmate-snippets'
 
+Bundle "puppetlabs/puppet-syntax-vim"
+
 filetype plugin indent on

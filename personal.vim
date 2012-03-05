@@ -295,3 +295,5 @@ unlet tmp
 " => Security
 """"""""""""""""""""""""""""""
 set secure
+
+" vim: set ft=vim ts=2 sw=2 tw=78 :

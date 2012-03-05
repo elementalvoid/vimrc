@@ -227,8 +227,8 @@ map <C-H> <C-W>h<C-W>_
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
 function! AppendModeline()
-  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d :",
-        \ &tabstop, &shiftwidth, &textwidth)
+  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d :",
+        \ &filetype, &tabstop, &shiftwidth, &textwidth)
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
 endfunction

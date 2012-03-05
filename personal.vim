@@ -22,6 +22,10 @@ set showcmd " show command characters
 set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
 
+" Don't auto format comments when hitting <enter> in insert mode
+" or <o>/<O> in normal mode
+set fo=tcq
+
 "avoid escape key
 imap jj <esc>
 

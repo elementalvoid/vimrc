@@ -1,10 +1,10 @@
 install:
 	[ -d bundle/vundle ] || \
 		git clone https://github.com/gmarik/vundle.git bundle/vundle && \
-		(cd bundle/vundle; git pull)
 	vim -u bundle.vim +BundleInstall +q -c ':q'
 
 update:
+	(cd bundle/vundle; git pull)
 	vim -u bundle.vim +BundleInstall! +q -c ':q'
 
 clean:

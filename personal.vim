@@ -2,7 +2,7 @@
 " => Bundles
 """"""""""""""""""""""""""""""
 " Use `make` to install bundles in a new repo
-source ~/.vim/bundles.vim
+source ~/.vim/bundle.vim
 
 
 """"""""""""""""""""""""""""""

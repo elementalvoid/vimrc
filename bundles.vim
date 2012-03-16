@@ -33,6 +33,8 @@ Bundle 'edsono/vim-matchit'
 "Bundle 'garbas/vim-snipmate'
 "Bundle 'honza/snipmate-snippets'
 
-Bundle "puppetlabs/puppet-syntax-vim"
+Bundle 'puppetlabs/puppet-syntax-vim'
+
+Bundle 'bronson/vim-trailing-whitespace'
 
 filetype plugin indent on

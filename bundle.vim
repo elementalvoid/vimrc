@@ -37,4 +37,6 @@ Bundle 'puppetlabs/puppet-syntax-vim'
 
 Bundle 'bronson/vim-trailing-whitespace'
 
+Bundle 'dan-bolsun/vim-tmux'
+
 filetype plugin indent on

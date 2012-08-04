@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'vim-scripts/bash-support.vim'
+"Bundle 'vim-scripts/bash-support.vim'
 Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'motemen/git-vim'

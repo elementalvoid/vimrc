@@ -13,7 +13,6 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'int3/vim-extradite'
 Bundle 'tmatilai/gitolite.vim'
-Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 "Bundle 'wincent/Command-T'
 "Bundle 'Raimondi/delimitMate'
@@ -25,6 +24,15 @@ if executable('ctags')
   Bundle 'majutsushi/tagbar'
 endif
 Bundle 'edsono/vim-matchit'
+
+" Completion
+Bundle 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+"let g:SuperTabMappingForward = '<c-space>'
+"let g:SuperTabMappingBackward = '<s-c-space>'
 
 " snipmate and its dependencies
 "Bundle 'superSnipMate'

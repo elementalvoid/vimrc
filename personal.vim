@@ -88,8 +88,11 @@ map <leader>t2 :setlocal shiftwidth=2<cr>
 map <leader>t4 :setlocal shiftwidth=4<cr>
 map <leader>t8 :setlocal shiftwidth=8<cr>
 
+" vim-trailing-whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+nnoremap <leader>ff :FixWhitespace<cr>
+inoremap <leader>ff <esc>:FixWhitespace<cr>a
 
 
 """"""""""""""""""""""""""""""
@@ -227,8 +230,9 @@ map <C-H> <C-W>h<C-W>_
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
 function! AppendModeline()
-  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d :",
-        \ &filetype, &tabstop, &shiftwidth, &textwidth)
+  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d sts=%d %s tw=%d :",
+        \ &filetype, &tabstop, &shiftwidth, &softtabstop,
+        \&expandtab == 1 ? 'et': '', &textwidth)
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
 endfunction

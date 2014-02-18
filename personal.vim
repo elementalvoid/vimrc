@@ -6,6 +6,17 @@ source ~/.vim/bundle.vim
 
 
 """"""""""""""""""""""""""""""
+" => Powerline
+""""""""""""""""""""""""""""""
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+set laststatus=2
+set noshowmode " don't show current mode
+
+
+""""""""""""""""""""""""""""""
 " => The Basics
 """"""""""""""""""""""""""""""
 "follow the leader
@@ -17,7 +28,6 @@ set showmatch " when a bracket is inserted, briefly jump to the matching one
 set nowrap " don't wrap long test
 set number " line numbers
 set title
-set showmode " show current mode
 set showcmd " show command characters
 set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
@@ -128,20 +138,6 @@ set hlsearch " highlight as you search
 set incsearch " scroll as you search
 set ignorecase " searches are case-insensitive
 set smartcase " unless they contain upper-case letters
-
-
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-set laststatus=2
-function! GitBranchStatus()
-  let git_branch = GitBranch()
-  if strlen(git_branch)
-    return '[Git (' . git_branch . ')]'
-  endif
-  return ''
-endfunction
-au BufNewFile,BufRead * set statusline=%f%m%r%h%w\ [BUFFER\ #%n]\ [TYPE=%Y]\ %(\%{GitBranchStatus()}\ %)[ASCII=%03.3b\ HEX=%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 
 """"""""""""""""""""""""""""""

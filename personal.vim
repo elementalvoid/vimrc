@@ -180,7 +180,7 @@ map <leader>w :w<cr>
 map <leader>q :call SmartQuit()<cr>
 map <leader>wq :w<cr><esc>:call SmartQuit()<cr>
 "write a buffer when we forgot to sudoedit
-map <leader>fw :w !sudo tee %<cr><cr>:e<cr>
+map <leader>fw :w! !sudo tee %<cr><cr>:e<cr>
 
 "Setup a cmd to edit a file in the pwd
 map <leader>e :e <c-r>=expand('%:p:h')<cr>/

@@ -8,7 +8,11 @@ Bundle 'gmarik/vundle'
 
 Bundle 'Lokaltog/powerline'
 
+" Languages
 "Bundle 'vim-scripts/bash-support.vim'
+Bundle 'puppetlabs/puppet-syntax-vim'
+Bundle 'indentpython'
+
 Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'altercation/vim-colors-solarized'
 "Bundle 'motemen/git-vim'
@@ -43,8 +47,6 @@ let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc
 "Bundle 'tomtom/tlib_vim'
 "Bundle 'garbas/vim-snipmate'
 "Bundle 'honza/snipmate-snippets'
-
-Bundle 'puppetlabs/puppet-syntax-vim'
 
 Bundle 'bronson/vim-trailing-whitespace'
 

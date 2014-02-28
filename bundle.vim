@@ -35,6 +35,7 @@ Bundle 'deb.vim'
 Bundle 'The-NERD-Commenter'
 Bundle 'hexman.vim'
 Bundle 'gnupg.vim'
+Bundle 'Show-mandictperldocpydocphpdoc-use-K'
 
 " Completion
 Bundle 'SyntaxComplete'

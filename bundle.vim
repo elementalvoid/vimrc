@@ -32,6 +32,7 @@ if executable('ctags')
 endif
 Bundle 'edsono/vim-matchit'
 Bundle 'deb.vim'
+Bundle 'The-NERD-Commenter'
 
 " Completion
 Bundle 'ervandew/supertab'

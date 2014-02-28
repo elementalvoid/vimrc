@@ -33,6 +33,8 @@ endif
 Bundle 'edsono/vim-matchit'
 Bundle 'deb.vim'
 Bundle 'The-NERD-Commenter'
+Bundle 'hexman.vim'
+Bundle 'gnupg.vim'
 
 " Completion
 Bundle 'ervandew/supertab'

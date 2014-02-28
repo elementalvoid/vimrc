@@ -234,6 +234,9 @@ function! AppendModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
+" make navigating help tags easier.
+nnoremap <silent> <buffer> <cr> <c-]>
+nnoremap <silent> <buffer> <bs> <c-t>
 
 """"""""""""""""""""""""""""""
 " => Omni Completion

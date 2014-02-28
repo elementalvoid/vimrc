@@ -31,6 +31,7 @@ if executable('ctags')
   Bundle 'majutsushi/tagbar'
 endif
 Bundle 'edsono/vim-matchit'
+Bundle 'deb.vim'
 
 " Completion
 Bundle 'ervandew/supertab'

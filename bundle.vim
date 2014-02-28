@@ -37,6 +37,7 @@ Bundle 'hexman.vim'
 Bundle 'gnupg.vim'
 
 " Completion
+Bundle 'SyntaxComplete'
 Bundle 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']

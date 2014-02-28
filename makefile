@@ -2,6 +2,7 @@ install:
 	[ -d bundle/vundle ] || \
 		git clone https://github.com/gmarik/vundle.git bundle/vundle && \
 	vim -u bundle.vim +BundleInstall +q -c ':q'
+	(cd ../; ln -s .vim/personal.vim .vimrc)
 
 update:
 	(cd bundle/vundle; git pull)

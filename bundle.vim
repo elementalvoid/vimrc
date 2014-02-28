@@ -12,6 +12,7 @@ Bundle 'Lokaltog/powerline'
 "Bundle 'vim-scripts/bash-support.vim'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'indentpython'
+Bundle 'Python-Syntax'
 
 Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'altercation/vim-colors-solarized'

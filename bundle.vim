@@ -36,7 +36,9 @@ Bundle 'deb.vim'
 Bundle 'The-NERD-Commenter'
 Bundle 'hexman.vim'
 Bundle 'gnupg.vim'
-Bundle 'Show-mandictperldocpydocphpdoc-use-K'
+
+let g:man_it_focus_window = 1
+Bundle 'elementalvoid/Show-mandictperldocpydocphpdoc-use-K'
 
 " Completion
 Bundle 'SyntaxComplete'

@@ -6,7 +6,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
 
 " Languages
 "Bundle 'vim-scripts/bash-support.vim'

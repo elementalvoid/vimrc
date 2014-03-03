@@ -17,8 +17,6 @@ Bundle 'Python-Syntax'
 
 Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'altercation/vim-colors-solarized'
-"Bundle 'motemen/git-vim'
-"Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'int3/vim-extradite'
 Bundle 'tmatilai/gitolite.vim'

@@ -1,27 +1,10 @@
 """"""""""""""""""""""""""""""
-" => Bundles
-""""""""""""""""""""""""""""""
-" Use `make` to install bundles in a new repo
-source ~/.vim/bundle.vim
-
-
-""""""""""""""""""""""""""""""
-" => Powerline
-""""""""""""""""""""""""""""""
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-set laststatus=2
-set noshowmode " don't show current mode
-
-
-""""""""""""""""""""""""""""""
 " => The Basics
 """"""""""""""""""""""""""""""
 "follow the leader
 let mapleader=";"
 
+set secure
 set mouse=a
 set modeline
 set showmatch " when a bracket is inserted, briefly jump to the matching one
@@ -31,6 +14,8 @@ set title
 set showcmd " show command characters
 set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
+set laststatus=2
+set noshowmode " don't show current mode
 
 " Don't auto format comments when hitting <enter> in insert mode
 " or <o>/<O> in normal mode
@@ -70,18 +55,6 @@ set ttimeoutlen=100
 
 
 """"""""""""""""""""""""""""""
-" => Colors and Fonts
-""""""""""""""""""""""""""""""
-set t_Co=256 " enable 256 color mode (which supports transparency)
-set background=dark
-colorscheme solarized
-
-if has('gui_running')
-  set guifont=DejaVu\ Sans\ Mono\ 8
-endif
-
-
-""""""""""""""""""""""""""""""
 " =>Tabbing and indenting
 """"""""""""""""""""""""""""""
 set autoindent
@@ -98,37 +71,17 @@ map <leader>t2 :setlocal shiftwidth=2<cr>
 map <leader>t4 :setlocal shiftwidth=4<cr>
 map <leader>t8 :setlocal shiftwidth=8<cr>
 
-" vim-trailing-whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-nnoremap <leader>ff :FixWhitespace<cr>
-inoremap <leader>ff <esc>:FixWhitespace<cr>a
-
 
 """"""""""""""""""""""""""""""
-" => Gundo
+" => Completion
 """"""""""""""""""""""""""""""
-nnoremap <F3> :GundoToggle<CR>
-
-
-""""""""""""""""""""""""""""""
-" => Super Tab plugin
-""""""""""""""""""""""""""""""
-"let omnifunc=syntaxcomplete#Complete
+if has("autocmd") && exists("+omnifunc")
+autocmd Filetype *
+    \	if &omnifunc == "" |
+    \		setlocal omnifunc=syntaxcomplete#Complete |
+    \	endif
+endif
 "let g:omni_syntax_use_iskeyword = 0
-let g:SuperTabDefaultCompletion="context"
-let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
-
-
-""""""""""""""""""""""""""""""
-" => TagBar
-""""""""""""""""""""""""""""""
-"tags - directory of current file, then search up from working dir
-set tags=./tags,tags;
-nnoremap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_left=1
-let g:tagbar_compact=1
-let g:tagbar_autoclose=1
 
 
 """"""""""""""""""""""""""""""
@@ -234,6 +187,9 @@ function! AppendModeline()
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
+" make navigating help tags easier.
+"nnoremap <silent> <buffer> <cr> <c-]>
+"nnoremap <silent> <buffer> <bs> <c-t>
 
 """"""""""""""""""""""""""""""
 " => Omni Completion
@@ -241,14 +197,6 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 "let omnifunc=syntaxcomplete#Complete
 "let g:omni_syntax_use_iskeyword = 0
 set completeopt=menu,longest,preview
-
-" some convenient mappings
-"inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-"inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-"inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
-"inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
 
 
 """"""""""""""""""""""""""""""
@@ -292,8 +240,10 @@ unlet tmp
 
 
 """"""""""""""""""""""""""""""
-" => Security
+" => Bundles
 """"""""""""""""""""""""""""""
-set secure
+" Use `make` to install bundles in a new repo
+source ~/.vim/bundle.vim
+
 
 " vim: set ft=vim ts=2 sw=2 tw=78 :

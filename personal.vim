@@ -1,8 +1,9 @@
-""""""""""""""""""""""""""""""
-" => The Basics
-""""""""""""""""""""""""""""""
-"follow the leader
-let mapleader=";"
+" {{{ Bundles
+source ~/.vim/bundle.vim
+" }}}
+
+" {{{ Personalization
+let mapleader=";" "follow the leader
 
 set secure
 set mouse=a
@@ -52,11 +53,9 @@ nmap Y y$
 set timeout
 set timeoutlen=500
 set ttimeoutlen=100
+" }}}
 
-
-""""""""""""""""""""""""""""""
-" =>Tabbing and indenting
-""""""""""""""""""""""""""""""
+" {{{ Tabbing and indenting
 set autoindent
 set smartindent
 set smarttab
@@ -70,43 +69,25 @@ set expandtab
 map <leader>t2 :setlocal shiftwidth=2<cr>
 map <leader>t4 :setlocal shiftwidth=4<cr>
 map <leader>t8 :setlocal shiftwidth=8<cr>
+" }}}
 
-
-""""""""""""""""""""""""""""""
-" => Completion
-""""""""""""""""""""""""""""""
-if has("autocmd") && exists("+omnifunc")
-autocmd Filetype *
-    \	if &omnifunc == "" |
-    \		setlocal omnifunc=syntaxcomplete#Complete |
-    \	endif
-endif
-"let g:omni_syntax_use_iskeyword = 0
-
-
-""""""""""""""""""""""""""""""
-" => Searching
-""""""""""""""""""""""""""""""
+" {{{  Searching
 set hlsearch " highlight as you search
 set incsearch " scroll as you search
 set ignorecase " searches are case-insensitive
 set smartcase " unless they contain upper-case letters
+" }}}
 
-
-""""""""""""""""""""""""""""""
-" => Python
-""""""""""""""""""""""""""""""
+" {{{  Python
 au FileType python set nocindent
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
 
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
+" }}}
 
-
-""""""""""""""""""""""""""""""
-" => Buffers
-""""""""""""""""""""""""""""""
+" {{{  Buffers
 "allow hidden buffers (modified buffers in background)
 set hidden
 
@@ -138,17 +119,11 @@ map <leader>fw :w! !sudo tee %<cr><cr>:e<cr>
 "Setup a cmd to edit a file in the pwd
 map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
-"Buffer naviation
-map <M-Left> :bprevious<cr>
-map <M-Right> :bnext<cr>
-
 "Buffer Explorer
 nnoremap <F5> :BufExplorer<cr>
+" }}}
 
-
-""""""""""""""""""""""""""""""
-" => Misc
-""""""""""""""""""""""""""""""
+" {{{  Misc
 "paste toggle
 function! TogglePaste()
   if &mouse == 'a'
@@ -175,6 +150,18 @@ map <C-K> <C-W>k<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-H> <C-W>h<C-W>_
 
+" Wrapped lines goes down/up to next row, rather than next line in file.
+noremap j gj
+noremap k gk
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
+
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
@@ -186,30 +173,15 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+" }}}
 
-" make navigating help tags easier.
-"nnoremap <silent> <buffer> <cr> <c-]>
-"nnoremap <silent> <buffer> <bs> <c-t>
-
-""""""""""""""""""""""""""""""
-" => Omni Completion
-""""""""""""""""""""""""""""""
-"let omnifunc=syntaxcomplete#Complete
-"let g:omni_syntax_use_iskeyword = 0
-set completeopt=menu,longest,preview
-
-
-""""""""""""""""""""""""""""""
-" => Cope (:h cope)
-""""""""""""""""""""""""""""""
+" {{{  Cope (:h cope)
 map <leader>cc :botright cope<cr>
 map <leader>cn :cn<cr>
 map <leader>cp :cp<cr>
+" }}}
 
-
-""""""""""""""""""""""""""""""
-" => Auto Commands
-""""""""""""""""""""""""""""""
+" {{{  Auto Commands
 if has("autocmd")
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -220,30 +192,110 @@ if has("autocmd")
     \   exe "normal g`\"" |
     \ endif
 endif
+" }}}
 
+" {{{  airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" }}}
 
-""""""""""""""""""""""""""""""
-" => Grep & Search
-""""""""""""""""""""""""""""""
-"let Grep_Skip_Dirs = 'RCS CVS SCCS .svn .git'
-"set grepprg=/bin/grep\ -nH
-" Try do use the ack program when available
-let tmp = ''
-for i in ['ack', 'ack-grep']
-  let tmp = substitute (system ('which '.i), '\n.*', '', '')
-  if v:shell_error == 0
-    exec "set grepprg=".tmp."\\ -a\\ -H\\ --nocolor\\ --nogroup"
-    break
+" {{{  Colorscheme
+set t_Co=256 " enable 256 color mode (which supports transparency)
+set background=dark
+silent! colorscheme solarized " Silence errors in case it isn't installed yet
+highlight clear SignColumn " SignColumn matches the background
+" }}}
+
+" {{{  NerdTree
+nnoremap <F6> :NERDTreeToggle<cr>
+let g:NERDTreeWinSize = 35
+let gNERDTreeShowLineNumbers = 1
+" }}}
+
+" {{{  Undotree
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_SplitWidth = 50
+let g:undotree_DiffpanelHeight = 15
+nnoremap <F3> :UndotreeToggle<cr>
+" }}}
+
+" {{{  TagBar
+"tags - directory of current file, then search up from working dir
+set tags=./tags,tags;
+nnoremap <silent> <F4> :TagbarToggle<CR>
+let g:tagbar_left=1
+let g:tagbar_compact=1
+let g:tagbar_autoclose=1
+" }}}
+
+" {{{  HexMan
+map <leader>hm <Plug>HexManager<cr>
+map <leader>hmd <Plug>HexDelete<cr>
+map <leader>hmi <Plug>HexInsert<cr>
+map <leader>hmg <Plug>HexGoto<cr>
+map <leader>hmn <Plug>HexNext<cr>
+map <leader>hmp <Plug>HexPrev<cr>
+map <leader>hmt <Plug>HexToggle<cr>
+map <leader>hms <Plug>HexStatus<cr>
+map <leader>hmf <Plug>HexFind<cr>
+" }}}
+
+" {{{  Completion
+let g:neocomplcache_enable_cursor_hold_i = 1 " Automatically popup after a delay
+let g:neocomplcache_enable_at_startup = 1 " Use neocomplcache.
+let g:neocomplcache_enable_smart_case = 1 " Use smartcase.
+
+" Some convenient mappings
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+if exists('g:spf13_map_cr_omni_complete')
+    inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
+endif
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
+function! CleverCr()
+  if pumvisible()
+    return neocomplcache#close_popup()
+  else
+    return "\<CR>"
   endif
-endfor
-unlet tmp
+endfunction
+" <CR> close popup and save indent or expand snippet
+imap <expr> <CR> CleverCr()
 
+" Automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-""""""""""""""""""""""""""""""
-" => Bundles
-""""""""""""""""""""""""""""""
-" Use `make` to install bundles in a new repo
-source ~/.vim/bundle.vim
+"set completeopt=menu,preview,longest
+set completeopt=menu,preview
 
+" Enable OmniCompletion
+if has("autocmd") && exists("+omnifunc")
+autocmd Filetype *
+    \	if &omnifunc == "" |
+    \		setlocal omnifunc=syntaxcomplete#Complete |
+    \	endif
+endif
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" }}}
 
-" vim: set ft=vim ts=2 sw=2 tw=78 :
+" {{{  trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+nnoremap <leader>ff :FixWhitespace<cr>
+inoremap <leader>ff <esc>:FixWhitespace<cr>a
+" }}}
+
+" vim: set ft=vim ts=2 sw=2 tw=78 foldmethod=marker :

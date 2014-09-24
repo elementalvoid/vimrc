@@ -124,7 +124,11 @@ nnoremap <F5> :BufExplorer<cr>
 " }}}
 
 " {{{  Misc
-"paste toggle
+" Folding
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
+" Paste toggle
 function! TogglePaste()
   if &mouse == 'a'
     set mouse=
@@ -141,7 +145,7 @@ endfunction
 nnoremap <F8> :call TogglePaste()<cr>
 inoremap <F8> <esc>:call TogglePaste()<cr>a
 
-"wrap toggle
+" Wrap toggle
 nnoremap <F9> :set wrap!<cr>
 
 " Easier moving in tabs and windows

@@ -87,6 +87,11 @@ au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 " }}}
 
+" Bash {{{
+let g:is_bash = 1 " Default ft-sh-syntax to bash mode
+let g:sh_fold_enabled = 1 " Bash folds at functions
+" }}}
+
 " {{{  Buffers
 "allow hidden buffers (modified buffers in background)
 set hidden

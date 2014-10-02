@@ -14,6 +14,8 @@ Plugin 'mhinz/vim-signify' " vcs changes in gutter
 "Plugin 'vim-scripts/bash-support.vim'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'spf13/vim-autoclose' " auto close quotes/parens/etc.
+Plugin 'surround.vim' " change, delete, add surroungings
+Plugin 'repeat.vim' " enable repeating supported plugin maps with '.'
 Plugin 'terryma/vim-multiple-cursors' " like sublimetext multiselect
 Plugin 'klen/python-mode'
 Plugin 'yssource/python.vim' " python support (up to date version of packaged script)

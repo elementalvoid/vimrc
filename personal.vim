@@ -78,18 +78,24 @@ set ignorecase " searches are case-insensitive
 set smartcase " unless they contain upper-case letters
 " }}}
 
-" {{{  Python
+" {{{ File Types
+"   {{{  Python
 au FileType python set nocindent
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
 
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
-" }}}
+"   }}}
 
-" Bash {{{
+"   Bash {{{
 let g:is_bash = 1 " Default ft-sh-syntax to bash mode
 let g:sh_fold_enabled = 1 " Bash folds at functions
+"   }}}
+
+"   Gradle {{{
+au BufNewFile,BufRead *.gradle set ft=groovy syntax=groovy
+"   }}}
 " }}}
 
 " {{{  Buffers

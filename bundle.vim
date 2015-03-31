@@ -41,6 +41,8 @@ Plugin 'neocomplcache'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Arduino-syntax-file'
 Plugin 'stephpy/vim-yaml'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
 
 if executable('ack-grep')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"

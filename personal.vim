@@ -96,6 +96,14 @@ let g:sh_fold_enabled = 1 " Bash folds at functions
 "   Gradle {{{
 au BufNewFile,BufRead *.gradle set ft=groovy syntax=groovy
 "   }}}
+
+"   Ruby {{{
+" Ruby is an oddball in the family, use special spacing/rules
+if v:version >= 703
+  " Note: Relative number is quite slow with Ruby, so is cursorline
+  autocmd FileType ruby setlocal norelativenumber nocursorline
+endif
+"   }}}
 " }}}
 
 " {{{  Buffers

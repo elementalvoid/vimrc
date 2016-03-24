@@ -105,6 +105,11 @@ if v:version >= 703
   autocmd FileType ruby setlocal norelativenumber nocursorline
 endif
 "   }}}
+
+"   Ansible {{{
+let g:ansible_extra_keywords_highlight = 1
+let g:ansible_attribute_highlight = "ab"
+"   }}}
 " }}}
 
 " {{{  Buffers

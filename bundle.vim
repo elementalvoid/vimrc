@@ -44,6 +44,9 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 
+" Asnible
+Plugin 'pearofducks/ansible-vim'
+
 if executable('ack-grep')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
   Bundle 'mileszs/ack.vim'

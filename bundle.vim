@@ -45,7 +45,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 
 " Asnible
-Plugin 'pearofducks/ansible-vim'
+Plugin 'elementalvoid/ansible-vim'
 
 if executable('ack-grep')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"

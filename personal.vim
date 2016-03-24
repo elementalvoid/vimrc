@@ -17,6 +17,7 @@ set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
 set laststatus=2
 set noshowmode " don't show current mode
+set backspace=indent,eol,start
 
 " Don't auto format comments when hitting <enter> in insert mode
 " or <o>/<O> in normal mode

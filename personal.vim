@@ -16,6 +16,7 @@ set showcmd " show command characters
 set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
 set laststatus=2
+set showtabline=2
 set noshowmode " don't show current mode
 set backspace=indent,eol,start
 
@@ -48,6 +49,8 @@ set confirm
 " have Y behave analogously to D rather than to dd
 nmap Y y$
 
+set splitright
+
 " mapping timeouts
 " timeout on mapping after 500ms - should be slower than you usually type
 " timeout on key codes after 100ms - should be faster than you can type
@@ -77,6 +80,9 @@ set hlsearch " highlight as you search
 set incsearch " scroll as you search
 set ignorecase " searches are case-insensitive
 set smartcase " unless they contain upper-case letters
+if executable('rg')
+  let grepprg="rg --vimgrep"
+endif
 " }}}
 
 " {{{ File Types
@@ -111,6 +117,45 @@ let g:ansible_extra_keywords_highlight = 1
 let g:ansible_attribute_highlight = "ab"
 let g:ansible_doc_mapping = ';ad'
 "   }}}
+
+"   Go {{{
+let g:go_fmt_autosave = 1
+autocmd BufWritePre *.go call go#fmt#Format(1)
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>tf <Plug>(go-test-func)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>i <Plug>(go-imports)
+autocmd FileType go nmap <leader>m <Plug>(go-metalinter)
+"   }}}
+
+"   Markdown {{{
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'yaml', 'xml', 'json']
+"let g:markdown_minlines = 100
+"   }}}
+
+"   Vim {{{
+let g:autoclose_vim_commentmode = 1
+"   }}}
+
+" {{{ Terraform
+let g:terraform_fmt_on_save = 1
+let g:terraform_align = 1
+autocmd FileType terraform setlocal commentstring=//%s
+" }}}
 " }}}
 
 " {{{  Buffers
@@ -149,6 +194,16 @@ map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 nnoremap <F5> :BufExplorer<cr>
 " }}}
 
+" {{{  Spelling
+set spellfile=~/.vim/spell-en.utf-8.add
+function! ToggleSpelling()
+  set spell!
+endfunction
+nnoremap zn ]s
+nnoremap zN [s
+nnoremap <leader>s :call ToggleSpelling()<CR>
+" }}}
+
 " {{{  Misc
 " Folding
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -173,6 +228,7 @@ inoremap <F8> <esc>:call TogglePaste()<cr>a
 
 " Wrap toggle
 nnoremap <F9> :set wrap!<cr>
+inoremap <F9> <esc>:set wrap!<cr>a
 
 " Easier moving in tabs and windows
 map <C-J> <C-W>j<C-W>_
@@ -206,7 +262,7 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 " }}}
 
 " {{{  Cope (:h cope)
-map <leader>cc :botright cope<cr>
+map <leader>cf :botright cope<cr>
 map <leader>cn :cn<cr>
 map <leader>cp :cp<cr>
 " }}}
@@ -218,23 +274,28 @@ if has("autocmd")
   " (happens when dropping a file on gvim).
   " Also don't do it when in a git/svn commit message.
   autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") && expand('%Y') != "COMMIT_EDITMSG" |
+    \ if line("'\"") > 0 && line("'\"") <= line("$") && expand('%Y') != 'COMMIT_EDITMSG' |
     \   exe "normal g`\"" |
     \ endif
 endif
 " }}}
 
 " {{{  airline
-let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
+let g:airline_solarized_normal_green = 0
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr= 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 " }}}
 
 " {{{  Colorscheme
-set t_Co=256 " enable 256 color mode (which supports transparency)
-set background=dark
+set t_Co=16
+let g:solarized_termcolors=16
+"set background=dark " It lies! It lies so bad!! -- Really, it's light. I promise. Trust me.
 silent! colorscheme solarized " Silence errors in case it isn't installed yet
 highlight clear SignColumn " SignColumn matches the background
+" solarized theme comes with a background toggler
+silent! call togglebg#map("<F10>")
 " }}}
 
 " {{{  NerdTree
@@ -257,18 +318,6 @@ nnoremap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_left=1
 let g:tagbar_compact=1
 let g:tagbar_autoclose=1
-" }}}
-
-" {{{  HexMan
-map <leader>hm <Plug>HexManager<cr>
-map <leader>hmd <Plug>HexDelete<cr>
-map <leader>hmi <Plug>HexInsert<cr>
-map <leader>hmg <Plug>HexGoto<cr>
-map <leader>hmn <Plug>HexNext<cr>
-map <leader>hmp <Plug>HexPrev<cr>
-map <leader>hmt <Plug>HexToggle<cr>
-map <leader>hms <Plug>HexStatus<cr>
-map <leader>hmf <Plug>HexFind<cr>
 " }}}
 
 " {{{  Completion

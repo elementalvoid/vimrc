@@ -7,10 +7,11 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 Plugin 'gmarik/vundle'
 
+Plugin 'habamax/vim-polar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'mhinz/vim-signify' " vcs changes in gutter
-Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'spf13/vim-autoclose' " auto close quotes/parens/etc.
 Plugin 'surround.vim' " change, delete, add surroungings
 Plugin 'repeat.vim' " enable repeating supported plugin maps with '.'
@@ -19,7 +20,6 @@ Plugin 'klen/python-mode'
 Plugin 'yssource/python.vim' " python support (up to date version of packaged script)
 Plugin 'python_match.vim'
 Plugin 'pythoncomplete'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/bufexplorer.zip'
 Plugin 'scrooloose/syntastic' " syntax checking using external tools
 Plugin 'kien/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
@@ -36,7 +36,6 @@ endif
 Plugin 'SyntaxComplete'
 "Plugin 'neocomplcache'
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'Arduino-syntax-file'
 Plugin 'stephpy/vim-yaml'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-dispatch'

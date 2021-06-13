@@ -289,12 +289,9 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " }}}
 
 " {{{  Colorscheme
-set t_Co=16
-let g:solarized_termcolors=16
-"set background=dark " It lies! It lies so bad!! -- Really, it's light. I promise. Trust me.
-silent! colorscheme solarized " Silence errors in case it isn't installed yet
-highlight clear SignColumn " SignColumn matches the background
-" solarized theme comes with a background toggler
+set termguicolors
+silent! colorscheme polar " Silence errors in case it isn't installed yet
+"highlight clear SignColumn " SignColumn matches the background
 silent! call togglebg#map("<F10>")
 " }}}
 

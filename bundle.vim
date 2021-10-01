@@ -25,7 +25,6 @@ Plugin 'scrooloose/syntastic' " syntax checking using external tools
 Plugin 'kien/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'sickill/vim-pasta'
 Plugin 'jwhitley/vim-matchit'
-Plugin 'deb.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'gnupg.vim'

@@ -290,6 +290,14 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " {{{  Colorscheme
 set termguicolors
+" @habamax to the rescue: https://github.com/habamax/.vim/blob/master/plugin/terminal.vim#L6
+if &term =~# '^screen\|tmux' || &term =~# '^xterm-256'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+elseif &term =~# 'win32'
+  set t_Co=256
+endif
+
 silent! colorscheme polar " Silence errors in case it isn't installed yet
 "highlight clear SignColumn " SignColumn matches the background
 silent! call togglebg#map("<F10>")
